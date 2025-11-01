@@ -259,7 +259,8 @@ class ColorApp:
             v = float(self.v_var.get())
         except Exception:
             return
-        h = h % 360
+        if h > 360:
+            h = h % 360.0
         s = clamp(s,0,100); v = clamp(v,0,100)
         self.h, self.s, self.v = h,s,v
         self.updating = True
